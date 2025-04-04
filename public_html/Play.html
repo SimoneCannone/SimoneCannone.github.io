@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Simone Cannone Portfolio">
+    <meta name="author" content="Devcrud">
+    <title>Simone Cannone Portfolio</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="assets/css/johndoe.css">
+
+	<style>
+	body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: url('assets/imgs/PS5.png') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    position: relative;
+}
+/* Capa de desenfoque sobre la imagen */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Usa la misma imagen */
+    filter: blur(10px); /* Aplica desenfoque */
+    z-index: -1;
+}
+
+	/* --- Barra de navegación --- */
+	.navbar {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+	}
+
+	.navbar button {
+			padding: 12px 25px;
+			border: none;
+			background: linear-gradient(135deg, #c70000, #8b0000);
+			color: white;
+			font-size: 16px;
+			border-radius: 30px;
+			cursor: pointer;
+			font-weight: bold;
+			transition: all 0.3s ease-in-out;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	}
+
+	.navbar button:hover {
+			background: linear-gradient(135deg, #8b0000, #5a0000);
+			transform: scale(1.05);
+			box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+	}
+
+	/* --- Galería de proyectos --- */
+	.gallery {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			flex-wrap: wrap;
+			padding: 20px;
+	}
+
+	/* --- Contenedor de cada proyecto --- */
+	.project {
+			position: relative;
+			width: 400px;
+			height: 300px; /* Ajustado para mejor proporción */
+			border-radius: 10px;
+			overflow: hidden;
+			cursor: pointer;
+			transition: transform 0.3s ease-in-out;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			background-color: rgba(255, 255, 255, 0.05);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+	}
+
+	/* --- Imagen dentro del contenedor --- */
+	.project img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover; /* Ocupa todo el espacio sin deformarse */
+			background-color: transparent;
+			transition: transform 0.3s ease-in-out;
+	}
+
+	/* --- Efecto de zoom al pasar el cursor --- */
+	.project:hover img {
+			transform: scale(1.05);
+	}
+
+	/* --- Overlay con información mejorada --- */
+	.project .overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.75); /* Filtro oscuro para mejor visibilidad */
+			color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			padding: 20px;
+			text-align: center;
+	}
+
+	/* --- Cambios de color en el texto --- */
+.overlay h3 {
+		font-size: 24px;
+		font-weight: bold;
+		color: #ff4d4d; /* Rojo vibrante */
+		margin-bottom: 8px;
+}
+
+.overlay p {
+		font-size: 12px;
+		line-height: 1.4;
+		max-width: 90%;
+		color: #dddddd; /* Gris claro para un mejor contraste */
+}
+
+/* --- Mostrar overlay al hacer hover --- */
+.project:hover .overlay {
+		opacity: 1;
+}
+			.project-content {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					gap: 30px;
+					padding: 20px;
+					max-width: 1000px;
+					margin: 0 auto;
+					 background: rgba(255, 255, 255, 0.75);; /* Negro con 50% de transparencia */
+				 border-radius: 15px;
+				 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35); /* Sombra sutil */
+				 margin: 20px auto;
+}
+			}
+
+			.video-container {
+					flex: 1;
+					max-width: 50%;
+			}
+
+			.video-container iframe {
+					width: 100%;
+					height: 315px;
+					border-radius: 10px;
+			}
+
+			.description-container {
+					flex: 1;
+					max-width: 50%;
+					text-align: center;
+			}
+			.main-tasks {
+					flex: 2	;
+					max-width: 50%;
+					text-align: center;
+			}
+
+
+
+			.gallery {
+					text-align: center;
+					padding: 40px;
+			}
+
+			.gallery-container {
+					display: flex;
+					justify-content: center;
+					gap: 15px;
+					flex-wrap: wrap;
+			}
+
+			.gallery img {
+					width: 300px;
+					border-radius: 10px;
+			}
+
+			.navbar-brand {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 48px;
+				font-weight: bold;
+				white-space: nowrap;
+			}
+
+			/* --- Ajustes para móviles --- */
+			@media (max-width: 768px) {
+				.navbar-brand {
+					font-size: 20px;
+				}
+
+				.navbar-toggler {
+					position: absolute;
+					left: 10px;
+				}
+
+				.navbar-collapse {
+					text-align: center;
+				}
+
+				.navbar-nav {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+
+
+			/* Contenedor para las tareas y los recuadros */
+			.feature-tasks {
+			  display: grid;
+			  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Los recuadros son más pequeños */
+			  gap: 20px; /* Espacio entre los recuadros */
+			  width: 100%; /* Contenedor ocupa solo el 50% de la pantalla */
+			  margin: 0 auto;
+			  padding: 20px 0; /* Espaciado adicional */
+			}
+
+			.task-box {
+			  background-color: #333; /* Fondo oscuro para mejor contraste */
+			  color: #fff; /* Texto en blanco */
+			  border-radius: 10px;
+			  padding: 15px;
+			  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombras para un efecto elevado */
+			  transition: transform 0.3s ease-in-out;
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: flex-start; /* Alineación del texto hacia arriba */
+			  height: 100%; /* Altura ajustada para los recuadros */
+			  text-align: center; /* Centrar todo el contenido */
+			}
+
+			/* Ajustar el título dentro del cuadro */
+			.task-box h3 {
+			  font-size: 16px;
+			  color: #ff6347; /* Color cálido para los títulos */
+			  font-weight: bold;
+			  margin-bottom: 10px;
+			  text-align: center; /* Centrar el título */
+			  overflow: hidden; /* Asegura que el texto no se desborde */
+			  text-overflow: ellipsis; /* Añadir puntos suspensivos si el texto es largo */
+			}
+
+			/* Ajustar el párrafo dentro del cuadro */
+			.task-box p {
+			  font-size: 12px;
+			  color: #ddd; /* Texto más claro para mejor contraste */
+			  line-height: 1.4;
+			  text-align: justify;
+			  overflow: hidden; /* Limita el texto para que no se desborde */
+			  flex-grow: 1; /* Permite que el texto crezca en el recuadro si es necesario */
+			  height: auto; /* Limitar la altura del texto para que sea más legible */
+			  margin: 0; /* Eliminar márgenes adicionales */
+			  padding: 0; /* Eliminar relleno extra */
+			}
+
+			/* Efecto de ampliación en hover */
+			.task-box:hover {
+			  transform: scale(1.15);
+			}
+			/* Ajustes del contenedor principal de texto */
+			.main-tasks {
+			  width: 50%; /* El texto ocupa el 50% del espacio */
+			  padding: 20px;
+			  min-height: 200px;
+			}
+
+	</style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+			<div class="container">
+					<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+					</button>
+						<a class="navbar-brand">PlayStation 5 Engine</a>
+
+					<div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav mr-auto">
+									<li class="nav-item">
+											<a href="index.html" class="nav-link">Home</a>
+									</li>
+							</ul>
+					</div>
+			</div>
+	</nav>
+
+    <!-- Título del Proyecto -->
+    <section class="project-header">
+
+    </section>
+
+    <!-- Sección de Video y Descripción -->
+    <section class="project-content">
+        <div class="video-container">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/y1AD-rBq4xM?si=pP9vh1BZb4Nz-eIv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 				</div>
+        <div class="description-container">
+            <h2>About the Project</h2>
+						<span class="line mb-5"></span>
+						<p>
+
+							The Play Engine is a lightweight and efficient game engine built to make handling 3D models, textures, audio, and resource management as smooth as possible. Designed for flexibility and high performance, it provides a solid foundation for game developers who want a modular and scalable framework without unnecessary complexity.
+
+						</p>
+
+        </div>
+    </section>
+		<section class="project-content">
+		  <div class="main-tasks">
+		    <h2>Main Tasks</h2>
+		    <span class="line mb-5"></span>
+				<p>
+					Seamless 3D Model Loading with TinyObjLoader. The engine uses TinyObjLoader to load and render 3D models in the OBJ format effortlessly. It efficiently manages vertex buffers, normal and UV mappings, and memory allocation, ensuring smooth handling of large and complex assets. The rendering pipeline is designed to minimize CPU load while making the most of GPU acceleration.
+
+		    </p>
+		    <p>
+					Optimized Texture Loading in GNF Format. Play Engine supports textures in the GNF (Graphics Native Format), which is optimized for graphical assets. It includes automatic mipmap generation, anisotropic filtering, and smart VRAM allocation to keep rendering smooth and efficient.
+		    </p>
+				<p>
+					Real-Time Audio Playback with Audio Out 2. Audio is a crucial part of any immersive experience, and Play Engine integrates Audio Out 2 for real-time playback. It supports multi-channel audio, spatial sound effects, and low-latency streaming, making sure sounds are in sync with the action on-screen.
+				</p>
+				<p>
+					Smart Resource Management. Managing assets like models, textures, shaders, and audio files is hassle-free with Play Engine’s built-in resource manager. It handles reference counting, lazy loading, and dynamic memory allocation to keep things running smoothly and reduce load times.
+				</p>
+				<p>
+					Intuitive Debugging and UI with ImGui. Debugging and tool development are made easy with the built-in ImGui system. Whether you need real-time debugging panels, in-game controls, or custom interfaces, this system provides a straightforward way to interact with the engine in a visual and intuitive manner.
+				</p>
+				<p>
+					Flexible Scene Management. The engine's scene system is designed to make structuring and organizing game worlds easy. It supports hierarchical scene graphs, object instancing, and seamless scene transitions, all while optimizing performance through object culling and event-driven updates
+				</p>
+				<p>
+					With its modular design, efficient rendering, and robust resource management, Play Engine strikes a balance between power and usability, giving developers the tools they need to bring their ideas to life without unnecessary overhead.
+				</p>
+		  </div>
+<div class="main-tasks">
+			<h2>Main Features</h2>
+			 <span class="line mb-5"></span>
+
+		  <div class="feature-tasks">
+
+		    <div class="task-box">
+		      <h3>Seamless 3D Model Loading with TinyObjLoader</h3>
+		      <p>
+					Load 3D objects dynamically and add them to a Resource Manager to then be used easily.
+ 					</p>
+		    </div>
+
+		    <div class="task-box">
+		      <h3>Optimized Texture Loading in GNF Format</h3>
+		      <p>
+							Dynamic and fast texture loading system that allows quick access to them from the Resouce Manager so they can be applied to objects.
+		      </p>
+		    </div>
+				<div class="task-box">
+					<h3>Real-Time Audio Playback with Audio Out 2 and NGS2</h3>
+					<p>
+						3D audio playback system made with both PS5 libraries, both Audio Out 2 and NGS2, and in both cases functional with a WAV file reading system.
+					</p>
+				</div>
+				<div class="task-box">
+					<h3>Smart Resource Management</h3>
+					<p>
+							Resource Manager which stores all objects at the beginning of the execution using filesystem so that they can be easily accessed later.
+					</p>
+				</div>
+				<div class="task-box">
+					<h3>Intuitive Debugging and UI with ImGui</h3>
+					<p>
+							Small imgui editor which allows you to make live modifications and save them in a scene system
+					</p>
+				</div>
+				<div class="task-box">
+					<h3>Flexible Scene Management</h3>
+					<p>
+
+						Scene system that allows object data to be saved in a .json and then loaded at the start of the program.
+					</p>
+				</div>
+
+		  </div>
+</div>
+
+		</section>
+
+    <!-- Sección de Imágenes y GIFs -->
+    <section class="project-content">
+			<div class="main-tasks">
+
+        <h2>Gallery</h2>
+				<span class="line mb-5"></span>
+        <div class="gallery-container">
+					<img src="assets/imgs/PS1.gif" alt="Play 1">
+					<img src="assets/imgs/PS2.gif" alt="Play 2">
+        </div>
+			</div>
+    </section>
+
+</body>
+</html>

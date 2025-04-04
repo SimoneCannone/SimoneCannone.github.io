@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Simone Cannone Portfolio">
+    <meta name="author" content="Devcrud">
+    <title>Simone Cannone Portfolio</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="assets/css/johndoe.css">
+
+	<style>
+	body {
+	    font-family: 'Arial', sans-serif;
+	    text-align: center;
+	    background-color: #ffffff;
+	    margin: 0;
+	    padding: 0;
+	    color: #000;
+	}
+
+	/* --- Barra de navegación --- */
+	.navbar {
+	    display: flex;
+	    justify-content: center;
+	    gap: 15px;
+	    margin: 30px 0;
+	}
+
+	.navbar button {
+	    padding: 12px 25px;
+	    border: none;
+	    background: linear-gradient(135deg, #c70000, #8b0000);
+	    color: white;
+	    font-size: 16px;
+	    border-radius: 30px;
+	    cursor: pointer;
+	    font-weight: bold;
+	    transition: all 0.3s ease-in-out;
+	    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	}
+
+	.navbar button:hover {
+	    background: linear-gradient(135deg, #8b0000, #5a0000);
+	    transform: scale(1.05);
+	    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+	}
+
+	/* --- Galería de proyectos --- */
+	.gallery {
+	    display: flex;
+	    justify-content: center;
+	    gap: 20px;
+	    flex-wrap: wrap;
+	    padding: 20px;
+	}
+
+	/* --- Contenedor de cada proyecto --- */
+	.project {
+	    position: relative;
+	    width: 500px;
+	    height: 400px; /* Ajustado para mejor proporción */
+	    border-radius: 10px;
+	    overflow: hidden;
+	    cursor: pointer;
+	    transition: transform 0.3s ease-in-out;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	    background-color: rgba(255, 255, 255, 0.05);
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	}
+
+	/* --- Imagen dentro del contenedor --- */
+	.project img {
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover; /* Ocupa todo el espacio sin deformarse */
+	    background-color: transparent;
+	    transition: transform 0.3s ease-in-out;
+	}
+
+	/* --- Efecto de zoom al pasar el cursor --- */
+	.project:hover img {
+	    transform: scale(1.05);
+	}
+
+	/* --- Overlay con información mejorada --- */
+	.project .overlay {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(0, 0, 0, 0.75); /* Filtro oscuro para mejor visibilidad */
+	    color: white;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	    opacity: 0;
+	    transition: opacity 0.3s ease-in-out;
+	    padding: 20px;
+	    text-align: center;
+	}
+
+	/* --- Cambios de color en el texto --- */
+.overlay h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4d4d; /* Rojo vibrante */
+    margin-bottom: 8px;
+}
+
+.overlay p {
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 90%;
+    color: #dddddd; /* Gris claro para un mejor contraste */
+}
+
+/* --- Mostrar overlay al hacer hover --- */
+.project:hover .overlay {
+    opacity: 1;
+}
+	</style>
+	<script>
+			const projects = {
+				"Proyecto 1": [
+						{ img: "assets/imgs/Katto.jpg", title: "Katto Rising Tides", description: "Action-adventure game developed in Unreal Engine 5. Created by a student team in 9 months. Available on Steam.", url: "Katto.html" },
+						{ img: "assets/imgs/PI.jpg", title: "Project Invasion", description: "A mobile game inspired by Vampire Survivors, developed in Unity by students in 3 months.", url: "PrInv.html" },
+						{ img: "assets/imgs/Sound.jpg", title: "Audio Lib", description: "Multi-platform (Linux & Windows) audio library with 3D sound, Doppler effect, and automatic WAV file reader.", url: "Sound.html" },
+						{ img: "assets/imgs/IA.png", title: "IA Multy Agent", description: "AI system using message-based bidding to assign tasks to the most suitable agent. Developed in Unity with a teammate.", url: "IA.html" },
+						{ img: "assets/imgs/Copperfield.png", title: "Copperfild Engine", description: "Developed in OpenGL with a custom ECS, multithreaded job manager, physics engine, and audio system. Built with a teammate.", url: "Copp.html" },
+						{ img: "assets/imgs/PS5.png", title: "Play 5 Engine", description: "Mini ECS-based engine with a resource manager for 3D models, textures, and a built-in audio system.", url: "Play.html" }
+				],
+				"Proyecto 2": [
+						{ img: "assets/imgs/Katto.jpg", title: "Katto Rising Tides", description: "Action-adventure game developed in Unreal Engine 5. Created by a student team in 9 months. Available on Steam.", url: "Katto.html" },
+						{ img: "assets/imgs/PI.jpg", title: "Project Invasion", description: "A mobile game inspired by Vampire Survivors, developed in Unity by students in 3 months.", url: "PrInv.html" }
+				],
+				"Proyecto 3": [
+						{ img: "assets/imgs/Copperfield.png", title: "Copperfild Engine", description: "Developed in OpenGL with a custom ECS, multithreaded job manager, physics engine, and audio system. Built with a teammate.", url: "Copp.html" },
+						{ img: "assets/imgs/PS5.png", title: "Play 5 Engine", description: "Mini ECS-based engine with a resource manager for 3D models, textures, and a built-in audio system.", url: "Play.html" }
+				],
+				"Proyecto 4": [
+						{ img: "assets/imgs/Sound.jpg", title: "Audio Lib", description: "Multi-platform (Linux & Windows) audio library with 3D sound, Doppler effect, and automatic WAV file reader.", url: "Sound.html" },
+						{ img: "assets/imgs/IA.png", title: "IA Multy Agent", description: "AI system using message-based bidding to assign tasks to the most suitable agent. Developed in Unity with a teammate.", url: "IA.html" }
+				]
+		};
+
+		function loadProject(projectName) {
+				const gallery = document.getElementById("gallery");
+				gallery.innerHTML = "";
+
+				projects[projectName].forEach(item => {
+						const div = document.createElement("div");
+						div.className = "project";
+						div.innerHTML = `
+								<a href="${item.url}">
+										<img src="${item.img}" alt="${item.title}">
+										<div class="overlay">
+												<h3>${item.title}</h3>
+												<p>${item.description}</p>
+										</div>
+								</a>
+						`;
+						gallery.appendChild(div);
+				});
+		}
+
+			window.onload = () => loadProject("Proyecto 1");
+	</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a>
+    <header class="header">
+        <div class="container">
+            <ul class="social-icons pt-3">
+							<a class="social-link" href="https://www.linkedin.com/in/simone-cannone-85539520a" target="_blank">
+									<i class="ti-linkedin" aria-hidden="true"></i>
+							</a>
+            </ul>
+            <div class="header-content">
+                <h1 class="header-title">Simone Cannone</h1>
+                <h6 class="header-mono" >Videogame Programmer</h6>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resume" class="nav-link">Resume</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav brand">
+                    <img src="assets/imgs/avatar.jpg" alt="" class="brand-img">
+                    <li class="brand-txt">
+                        <h5 class="brand-title">Simone Cannone</h5>
+                        <div class="brand-subtitle">Programmer</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+		<header>
+			<br><br>
+			<h2 class="font-weight-light">My Projects</h2>
+			<span class="line mb-5"></span>
+			        <div class="navbar">
+						<button onclick="loadProject('Proyecto 1')">All</button>
+            <button onclick="loadProject('Proyecto 2')">Videogames</button>
+						<button onclick="loadProject('Proyecto 3')">Graphics</button>
+            <button onclick="loadProject('Proyecto 4')">Other</button>
+        </div>
+    </header>
+
+
+    <main>
+        <div id="gallery" class="gallery"></div>
+    </main>
+
+<div class="modal fade" id="project2Modal" tabindex="-1" role="dialog" aria-labelledby="project2Title" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+				<div class="modal-content">
+						<div class="modal-header">
+								<h5 class="modal-title" id="project2Title">Project 2</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+								</button>
+						</div>
+						<div class="modal-body">
+								Detailed information about Project 2.
+						</div>
+				</div>
+		</div>
+</div>
+
+<div class="modal fade" id="project3Modal" tabindex="-1" role="dialog" aria-labelledby="project3Title" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+				<div class="modal-content">
+						<div class="modal-header">
+								<h5 class="modal-title" id="project3Title">Project 3</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+								</button>
+						</div>
+						<div class="modal-body">
+								Detailed information about Project 3.
+						</div>
+				</div>
+		</div>
+</div>
+
+
+    <div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Who am I ?</h3>
+                <span class="line mb-5"></span>
+                <h5 class="mb-3">Passionate and proactive programmer.</h5>
+                <p class="mt-20">I am a programmer passionate about video games and technology, always motivated to learn and improve my skills. I excel at teamwork, contributing creative ideas and effective communication to achieve common goals. I am a dedicated, proactive, and committed individual, which allows me to tackle new challenges with enthusiasm and responsibility.</p>
+								<a href="assets/doc/CV.pdf" download class="btn btn-outline-danger">
+								    <i class="icon-down-circled2"></i> Download My CV
+								</a>
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Personal Info</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                    <li><span>Birthdate</span> : 30/12/2001</li>
+                    <li><span>Email</span> : simo11cano@gmail.com</li>
+                    <li><span>Address</span> :  12595 Venta Sant Antoni Estacion Castellon Spain.</li>
+                </ul>
+                <ul class="social-icons pt-3">
+									<li class="social-item">
+									    <a class="social-link" href="https://www.linkedin.com/in/simone-cannone-85539520a" target="_blank">
+									        <i class="ti-linkedin" aria-hidden="true"></i>
+									    </a>
+									</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">My Expertise</h3>
+                <span class="line mb-5"></span>
+                <div class="row">
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Video Game Programmer - Arkadia/Esat</h6>
+                        <p class="subtitle"> Final year project published on Steam in which a video game was developed in a semi-professional manner bringing together the different careers and with producers simulating a real work environment.</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Resume Section-->
+    <section class="section" id="resume">
+        <div class="container">
+            <h2 class="mb-5"><span class="text-danger">My</span> Information</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Expertise</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">09/2023 - 07/2024 </h6>
+                            <P>Video Game Programmer - Arkadia/Esat</P>
+                            <P class="subtitle">Final year project published on Steam in which a video game was developed in a semi-professional manner bringing together the different careers and with producers simulating a real work environment.</P>
+                            <hr>
+                            <h6 class="title text-danger">03/2019 - 06/2019</h6>
+                            <P>FSound technician assistant - TV Castellon</P>
+                            <P class="subtitle">Intern student at TV Castellon assisting in the preparation of programs and taking charge of the audio system both in terms of equipment repair and recording of this in programs and live. Also some video editing.</P>
+                            <hr>
+                            <h6 class="title text-danger">07/2021 - 08/2021</h6>
+                            <P>Waiter - El Barco</P>
+                            <P class="subtitle">Waiter in a tourist place during the summer season several years.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Education</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2024 - Present</h6>
+                            <P>Sheffield Hallam University - Computer Science for Games </P>
+                            <hr>
+                            <h6 class="title text-danger">2021 - 2024</h6>
+                            <P>ESAT - HND in Computing Videogames Programming </P>
+                            <hr>
+                            <h6 class="title text-danger">2019 - 2021</h6>
+                            <P>IES Henrie Matisse - Grado Superior Animación 3D</P>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Skills</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>C++</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>C</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+														<h6>Unreal</h6>
+														<div class="progress mb-3">
+																<div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+														<h6>Unity</h6>
+														<div class="progress mb-3">
+																<div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+														<h6>OpenGL</h6>
+														<div class="progress mb-3">
+																<div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+														<h6>Perforce</h6>
+														<div class="progress mb-3">
+																<div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+														<h6>GitHub</h6>
+														<div class="progress mb-3">
+																<div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+                            <h6>C#</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Photoshop</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Premiere</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Languages</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           	<h6>Italian -
+													 		<span class="languages">Native Proficiency</span>
+													 	</h6>
+                           	<h6>Spanish -
+                             <span class="languages">Native Proficiency</span>
+													 	</h6>
+                            <h6>English -
+                              <span class="languages">IELTS 6.5 (2024)</span>
+														</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
