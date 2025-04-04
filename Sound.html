@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Simone Cannone Portfolio">
+    <meta name="author" content="Devcrud">
+    <title>Simone Cannone Portfolio</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="assets/css/johndoe.css">
+
+	<style>
+	body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: url('assets/imgs/soun.jpg') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    position: relative;
+}
+/* Capa de desenfoque sobre la imagen */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Usa la misma imagen */
+    filter: blur(10px); /* Aplica desenfoque */
+    z-index: -1;
+}
+
+	/* --- Barra de navegación --- */
+	.navbar {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+	}
+
+	.navbar button {
+			padding: 12px 25px;
+			border: none;
+			background: linear-gradient(135deg, #c70000, #8b0000);
+			color: white;
+			font-size: 16px;
+			border-radius: 30px;
+			cursor: pointer;
+			font-weight: bold;
+			transition: all 0.3s ease-in-out;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	}
+
+	.navbar button:hover {
+			background: linear-gradient(135deg, #8b0000, #5a0000);
+			transform: scale(1.05);
+			box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+	}
+
+	/* --- Galería de proyectos --- */
+	.gallery {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			flex-wrap: wrap;
+			padding: 20px;
+	}
+
+	/* --- Contenedor de cada proyecto --- */
+	.project {
+			position: relative;
+			width: 400px;
+			height: 300px; /* Ajustado para mejor proporción */
+			border-radius: 10px;
+			overflow: hidden;
+			cursor: pointer;
+			transition: transform 0.3s ease-in-out;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			background-color: rgba(255, 255, 255, 0.05);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+	}
+
+	/* --- Imagen dentro del contenedor --- */
+	.project img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover; /* Ocupa todo el espacio sin deformarse */
+			background-color: transparent;
+			transition: transform 0.3s ease-in-out;
+	}
+
+	/* --- Efecto de zoom al pasar el cursor --- */
+	.project:hover img {
+			transform: scale(1.05);
+	}
+
+	/* --- Overlay con información mejorada --- */
+	.project .overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.75); /* Filtro oscuro para mejor visibilidad */
+			color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			padding: 20px;
+			text-align: center;
+	}
+
+	/* --- Cambios de color en el texto --- */
+.overlay h3 {
+		font-size: 24px;
+		font-weight: bold;
+		color: #ff4d4d; /* Rojo vibrante */
+		margin-bottom: 8px;
+}
+
+.overlay p {
+		font-size: 12px;
+		line-height: 1.4;
+		max-width: 90%;
+		color: #dddddd; /* Gris claro para un mejor contraste */
+}
+
+/* --- Mostrar overlay al hacer hover --- */
+.project:hover .overlay {
+		opacity: 1;
+}
+			.project-content {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					gap: 30px;
+					padding: 20px;
+					max-width: 1000px;
+					margin: 0 auto;
+					 background: rgba(255, 255, 255, 0.75);; /* Negro con 50% de transparencia */
+				 border-radius: 15px;
+				 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35); /* Sombra sutil */
+				 margin: 20px auto;
+}
+			}
+
+			.video-container {
+					flex: 1;
+					max-width: 50%;
+			}
+
+			.video-container iframe {
+
+					height: 315px;
+					border-radius: 10px;
+			}
+
+			.description-container {
+					flex: 1;
+					max-width: 50%;
+					text-align: center;
+			}
+			.main-tasks {
+					flex: 2	;
+					max-width: 50%;
+					text-align: center;
+			}
+
+
+
+			.gallery {
+					text-align: center;
+					padding: 40px;
+			}
+
+			.gallery-container {
+					display: flex;
+					justify-content: center;
+					gap: 15px;
+					flex-wrap: wrap;
+			}
+
+			.gallery img {
+					width: 300px;
+					border-radius: 10px;
+			}
+
+			.navbar-brand {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 48px;
+				font-weight: bold;
+				white-space: nowrap;
+			}
+
+			/* --- Ajustes para móviles --- */
+			@media (max-width: 768px) {
+				.navbar-brand {
+					font-size: 20px;
+				}
+
+				.navbar-toggler {
+					position: absolute;
+					left: 10px;
+				}
+
+				.navbar-collapse {
+					text-align: center;
+				}
+
+				.navbar-nav {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+
+
+			/* Contenedor para las tareas y los recuadros */
+			.feature-tasks {
+			  display: grid;
+			  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Los recuadros son más pequeños */
+			  gap: 20px; /* Espacio entre los recuadros */
+			  width: 100%; /* Contenedor ocupa solo el 50% de la pantalla */
+			  margin: 0 auto;
+			  padding: 20px 0; /* Espaciado adicional */
+			}
+
+			.task-box {
+			  background-color: #333; /* Fondo oscuro para mejor contraste */
+			  color: #fff; /* Texto en blanco */
+			  border-radius: 10px;
+			  padding: 15px;
+			  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombras para un efecto elevado */
+			  transition: transform 0.3s ease-in-out;
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: flex-start; /* Alineación del texto hacia arriba */
+			  height: 100%; /* Altura ajustada para los recuadros */
+			  text-align: center; /* Centrar todo el contenido */
+			}
+
+			/* Ajustar el título dentro del cuadro */
+			.task-box h3 {
+			  font-size: 16px;
+			  color: #ff6347; /* Color cálido para los títulos */
+			  font-weight: bold;
+			  margin-bottom: 10px;
+			  text-align: center; /* Centrar el título */
+			  overflow: hidden; /* Asegura que el texto no se desborde */
+			  text-overflow: ellipsis; /* Añadir puntos suspensivos si el texto es largo */
+			}
+
+			/* Ajustar el párrafo dentro del cuadro */
+			.task-box p {
+			  font-size: 12px;
+			  color: #ddd; /* Texto más claro para mejor contraste */
+			  line-height: 1.4;
+			  text-align: justify;
+			  overflow: hidden; /* Limita el texto para que no se desborde */
+			  flex-grow: 1; /* Permite que el texto crezca en el recuadro si es necesario */
+			  height: auto; /* Limitar la altura del texto para que sea más legible */
+			  margin: 0; /* Eliminar márgenes adicionales */
+			  padding: 0; /* Eliminar relleno extra */
+			}
+
+			/* Efecto de ampliación en hover */
+			.task-box:hover {
+			  transform: scale(1.15);
+			}
+			/* Ajustes del contenedor principal de texto */
+			.main-tasks {
+			  width: 50%; /* El texto ocupa el 50% del espacio */
+			  padding: 20px;
+			  min-height: 200px;
+			}
+
+	</style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+			<div class="container">
+					<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+					</button>
+						<a class="navbar-brand">Cross-Platform Audio Library</a>
+
+					<div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav mr-auto">
+									<li class="nav-item">
+											<a href="index.html" class="nav-link">Home</a>
+									</li>
+							</ul>
+					</div>
+			</div>
+	</nav>
+
+    <!-- Título del Proyecto -->
+    <section class="project-header">
+
+    </section>
+
+    <!-- Sección de Video y Descripción -->
+    <section class="project-content">
+        <div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LpNPPSbT1W8?si=H3PIwbInE8oioc8G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+        <div class="description-container">
+            <h2>About the Project</h2>
+						<span class="line mb-5"></span>
+						<p>
+							This is a personal project: a cross-platform audio library designed for seamless compatibility with both Windows and Linux. It enables efficient, low-latency playback of WAV files and features a custom-built file reader that optimizes data handling. Unlike traditional solutions that rely on OpenAL or SDL, this library interacts directly with system-level APIs—WASAPI on Windows and ALSA on Linux—allowing precise control over audio processing, buffer management, and latency optimization.
+						</p>
+						<p>
+							Developed entirely in C++, the library leverages the language’s efficiency, portability, and memory management capabilities. Its modular architecture ensures easy expansion, with potential for additional file formats, real-time audio effects, and spatial audio support. This project highlights my expertise in low-level audio programming and cross-platform development, demonstrating my ability to create high-performance, flexible software solutions.
+						</p>
+
+        </div>
+    </section>
+		<section class="project-content">
+		  <div class="main-tasks">
+		    <h2>Main Tasks</h2>
+		    <span class="line mb-5"></span>
+				<p>
+			     3D Audio Support: Built-in spatial audio with panoramic positioning for an immersive sound experience. This system integrates 3D audio with panoramic sound positioning, enabling audio sources to be perceived from any direction in the 3D space. This technology enhances realism in virtual environments, such as video games or simulations, offering users an immersive and realistic audio experience by creating a natural sense of direction and depth.
+			 </p>
+			 <p>
+			     Doppler Effect: Real-time sound distortion based on relative motion, adding realism to dynamic audio environments. The Doppler Effect simulates the change in frequency and pitch of sounds as their source moves relative to the listener. This is essential for applications like driving simulators or action games where moving sound sources (e.g., vehicles or projectiles) must be perceived with accurate tonal changes. The real-time implementation of this effect provides a more lifelike auditory experience.
+			 </p>
+			 <p>
+			     Native API Integration: Developed using WASAPI on Windows and ALSA on Linux, ensuring low-latency and high-performance audio processing. By leveraging native APIs like WASAPI on Windows and ALSA on Linux, the system achieves precise audio resource management with minimal latency. This enables optimal sound quality and synchronization, which is critical for real-time applications that require quick, seamless audio processing, such as games or AR experiences.
+			 </p>
+			 <p>
+			     This project demonstrates my expertise in low-level audio programming, resource management, and cross-platform development without relying on external libraries like OpenAL or SDL. By using native APIs and managing resources directly, I have full control over the audio workflow, ensuring flexibility and higher optimization, while showcasing my ability to work at the system level and implement custom audio solutions.
+			 </p>
+
+		  </div>
+<div class="main-tasks">
+			<h2>Main Features</h2>
+			 <span class="line mb-5"></span>
+
+		  <div class="feature-tasks">
+
+		    <div class="task-box">
+		      <h3>3D Audio Support</h3>
+		      <p>
+						Built-in spatial audio with panoramic positioning for an immersive sound experience.
+ 					</p>
+		    </div>
+
+		    <div class="task-box">
+		      <h3>Doppler Effect</h3>
+		      <p>
+						Real-time sound distortion based on relative motion, adding realism to dynamic audio environments.
+		      </p>
+		    </div>
+
+				<div class="task-box">
+		      <h3>Native API Integration</h3>
+		      <p>
+		        Developed using WASAPI on Windows and ALSA on Linux, ensuring low-latency and high-performance audio processing.
+		      </p>
+		    </div>
+				<div class="task-box">
+					<h3>C++</h3>
+					<p>
+						The entire implementation was done in C++ to take advantage of its portability and class system, which made it easier to encapsulate the code.
+					</p>
+				</div>
+				</div>
+		  </div>
+</div>
+
+		</section>
+
+</body>
+</html>
