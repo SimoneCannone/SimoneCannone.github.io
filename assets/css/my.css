@@ -47,7 +47,8 @@
 }
 
 .project h3{
-text-align: center;
+  margin: 15px;
+  text-align: center;
 }
 
 .project p{
@@ -179,7 +180,7 @@ margin: 25px;
     .main-tasks {
         flex: 2	;
         max-width: 75%;
-        text-align: center;
+        text-align: left;
         padding: 20px;
         min-height: 200px;
     }
