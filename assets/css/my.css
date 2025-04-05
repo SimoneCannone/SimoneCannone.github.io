@@ -34,7 +34,7 @@
 .project {
     position: relative;
     width: 400px;
-    height: 300px; /* Ajustado para mejor proporción */
+    height: auto;; /* Ajustado para mejor proporción */
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -45,6 +45,15 @@
     align-items: center;
     justify-content: center;
 }
+
+.project h3{
+text-align: center;
+}
+
+.project p{
+margin: 10px;
+}
+
 
 /* --- Imagen dentro del contenedor --- */
 .project img {
@@ -137,6 +146,11 @@
         text-align: center;
         padding: 20px;
         min-height: 200px;
+    }
+
+    .main-tasks {
+      width: 75%; /* El texto ocupa el 50% del espacio */
+
     }
 
     .gallery-container {
